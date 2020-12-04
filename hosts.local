@@ -1,0 +1,2 @@
+[builder]
+jenkins.basilicata.nnxx ansible_connection=local
