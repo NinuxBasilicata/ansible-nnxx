@@ -10,6 +10,12 @@
     openwisp2fw_source_repo: https://github.com/openwrt/openwrt.git
     openwisp2fw_source_version: openwrt-19.07
     openwisp2fw_source_targets:
+        - system: x86
+          subtarget: generic
+          profile: Generic
+        - system: bcm27xx
+          subtarget: bcm2710
+          profile: DEVICE_rpi-DEVICE_rpi-3
         - system: ar71xx
           subtarget: generic
           profile: Default
