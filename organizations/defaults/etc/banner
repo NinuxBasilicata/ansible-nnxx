@@ -6,8 +6,8 @@
  |_| \_||_____||_| \_| \____/ /_/ \_\(_)\____/ |_|  \_\ \_____|
 
  --------------------------------------------------------------
-             The NNXX Firmware is based on LEDE
-                  https://lede-project.org/
+             The NNXX Firmware is based on OpenWRT
+                  https://openwrt.org/
  --------------------------------------------------------------
   * Lan HNA Space:  your-lan/16
   * Backbone:       your-backbone/16
