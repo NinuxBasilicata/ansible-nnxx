@@ -74,8 +74,8 @@
         - coova-chilli
         - lua-cjson
         - rpcd-mod-iwinfo
-        # nodogsplash
-        - nodogsplash
+        # opennds
+        - opennds
         - sqm-scripts
         # WRT3200ACM:
         - kmod-ath
@@ -146,8 +146,8 @@
         - coova-chilli
         - lua-cjson
         - rpcd-mod-iwinfo
-    nnxx_nodogsplash:
-        - nodogsplash
+    nnxx_opennds:
+        - opennds
         - sqm-scripts
     olsrd2_packages:
         - oonf-olsrd2
@@ -165,7 +165,7 @@
     # packages used in flavours
     base_packages: "{{ openwisp2fw_default_packages + nnxx_full_packages + olsrd2_packages }}"
     chilli_packages: "{{ openwisp2fw_default_packages + nnxx_full_packages + olsrd2_packages + nnxx_chilli }}"
-    nodogsplash_packages: "{{ openwisp2fw_default_packages + nnxx_full_packages + olsrd2_packages + nnxx_nodogsplash }}"
+    opennds_packages: "{{ openwisp2fw_default_packages + nnxx_full_packages + olsrd2_packages + nnxx_opennds }}"
     # definition of available flavours
     openwisp2fw_image_flavours:
         base:
@@ -173,27 +173,42 @@
             packages: "{{ base_packages }}"
           ipq806x:
             packages: "{{ base_packages }}"
+          mvebu:
+            packages: "{{ base_packages + WRT3200ACM }}"
         chilli:
           ar71xx:
             packages: "{{ chilli_packages }}"
-        nodogsplash:
-          ar71xx:
-            packages: "{{ nodogsplash_packages }}"
           ipq806x:
-            packages: "{{ nodogsplash_packages }}"
+            packages: "{{ chilli_packages }}"
           mvebu:
-            packages: "{{ nodogsplash_packages + WRT3200ACM }}"
+            packages: "{{ chilli_packages + WRT3200ACM }}"
+        opennds:
+          ar71xx:
+            packages: "{{ opennds_packages }}"
+          ipq806x:
+            packages: "{{ opennds_packages }}"
+          mvebu:
+            packages: "{{ opennds_packages + WRT3200ACM }}"
      # definition of organizations
     default_openwisp2_url: https://openwisp.nnxx.ninux.org
     openwisp2fw_organizations:
-         - name: basilicata
+         - name: defaults
            flavours:
              - base
-             - nodogsplash
+             - opennds
              - chilli
            openwisp:
              url: "{{ default_openwisp2_url }}"
              shared_secret: Secretn1nuxB4s
              unmanaged: "{{ openwisp2fw_default_unmanaged }}"
              management_interface: "vpnbas"
- 
+         - name: basilicata
+           flavours:
+             - base
+             - opennds
+             - chilli
+           openwisp:
+             url: "{{ default_openwisp2_url }}"
+             shared_secret: Secretn1nuxB4s
+             unmanaged: "{{ openwisp2fw_default_unmanaged }}"
+             management_interface: "vpnbas" 
