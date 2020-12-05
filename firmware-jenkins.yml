@@ -33,10 +33,10 @@
           name: openwisp
           location: https://github.com/openwisp/openwisp-config.git
           branch: master
-        - method: src-git
-          name: luciopenwisp
-          location: https://github.com/openwisp/luci-openwisp.git
-          branch: master
+#        - method: src-git
+#          name: luciopenwisp
+#          location: https://github.com/openwisp/luci-openwisp.git
+#          branch: master
         - method: src-git
           name: packages
           location: https://github.com/openwrt/packages.git
@@ -89,7 +89,7 @@
         - kmod-usb-uhci
         - kmod-usb2
         - kmod-usb3
-    # other OpenWRT/LEDE configurations
+    # other OpenWRT configurations
     openwisp2fw_source_other_configs:
         # busybox
         - CONFIG_BUSYBOX_CUSTOM=y
